@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1d271b352b.js" crossorigin="anonymous"></script>
+    <!-- using `weight: 100, optical size: 20, dark mode and filled icons` -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="messenger.css">
+    <!-- Cropper CSS -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
+
+    <!-- Cropper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- loginpage start -->
+
+    <div id="CreateAccounts">
+        <div class="login" id="loginpage" style="display: inline-block;">
+            <span class="material-symbols-outlined" id="arrow_back">
+                arrow_back
+                </span>
+            <div class="appicon">
+                <img src="download.jpg" alt="">
+            </div>
+            <p style="font-size: 20px; display: none;" id="rongEmail">The email address you entered isn't connected to an account.</p>
+            <div class="email">
+                <span class="material-symbols-outlined">
+                    account_circle
+                    </span>
+                <input type="email" id="LoginEmail" placeholder="Email Id">
+            </div>
+            <p id="errorloginEmail"  style="display: none;">Paice Enter Email...!</p>
+            <div class="password">
+                <span class="material-symbols-outlined">
+                    lock
+                    </span>
+                <input type="password" id="LoginPassword" placeholder="Password">
+                <span class="material-symbols-outlined" id="LoginVisibility_off">
+                    visibility_off
+                    </span>
+                <span class="material-symbols-outlined" id="LoginVisibility" style="display: none;">
+                    visibility
+                    </span>
+            </div>
+            <p id="errorloginPassword"  style="display: none;">Paice Enter Password...!</p>
+            <div class="buttons">
+                <button class="loginbtn" id="LOGIN">LOGIN</button>
+                <button class="loginSadu">LOGIN</button>
+            </div>
+            <div class="forgot">
+                <div>
+                    <a id="ForgotPassword">Forgot Password?</a>
+                    <p id="loginpageSignUp">Sign Up</p>
+                </div>
+            </div>
+            <br>
+            <a style="font-size: 15px;">_____________ OR ______________</a>
+            <br>
+            <br>
+            <div class="google">
+                <p>Sig Up With Social Network</p>
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-facebook"></i>
+            </div>
+        </div>
+        <div class="login" id="SignUp" style="display: none;">
+            <div class="SignUpArrow">
+                <span class="material-symbols-outlined" id="SignUpArrow_back">
+                    arrow_back
+                    </span> 
+            </div>
+            <div class="img">
+                <img src="account_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg" alt="" id="inputImage">
+                <span class="material-symbols-outlined">
+                    imagesmode
+                    </span>
+                <input type="file" id="inputFile" style="display: none;">
+            </div> 
+            <div class="cropper">
+                <div class="saveImage">
+                    <span class="material-symbols-outlined" id="ImagePage_back">
+                        arrow_back
+                        </span>
+                        <span id="saveImage" onclick="saveImage()" class="material-symbols-outlined">
+                            check
+                            </span>   
+                </div>
+                <img src="" id="previewImage" >
+            </div>
+            <div class="email">
+                <span class="material-symbols-outlined">
+                    signature
+                    </span>
+                <input type="text" id="SignUpname" placeholder="Enter Full Name">
+            </div>
+            <p id="errorName" style="display: none;">Plese Enter Name...!</p>
+            <div class="email">
+                <span class="material-symbols-outlined">
+                    account_circle
+                    </span>
+                <input type="email" id="SignUpEmail" placeholder="Email Id">
+            </div>
+            <p id="errorSignUpEmail"  style="display: none;">Paice Enter Email...!</p>
+            <div class="password">
+                <span class="material-symbols-outlined">
+                    lock
+                    </span>
+                <input type="password" id="SignUppassword" placeholder="Password">
+                <span id="SignUpvisibility_off" class="material-symbols-outlined">
+                    visibility_off
+                    </span>
+                <span id="SignUpvisibility" class="material-symbols-outlined" style="display: none;">
+                    visibility
+                    </span>
+            </div>
+            <p id="errorSignUpPassword"  style="display: none;">Paice Enter Password...!</p>
+    
+            <div class="password">
+                <span class="material-symbols-outlined">
+                    phone_in_talk
+                    </span>
+                    <input type="number" id="SignUpNumber" placeholder="Enter Your Number">
+                </div>
+                <p id="errorNumber"  style="display: none;">Paice Enter Number...!</p>
+                <div class="buttons">
+                    <button id="signupBtn">Sign Up</button> 
+                    <div>
+                        <div>
+                            <p>Already have an account? </p>
+                            <a id="login"> Log in</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="forget" id="forgetpage" style="display: none;">
+            <div class="arrow_backText">
+                <span class="material-symbols-outlined" id="forgetbackarroe1">
+                    arrow_back
+                    </span>
+                <p>Forget Your Id</p>
+            </div>
+            <div class="text">
+                <p>Please enter your email address or mobile number to search for your account.</p>
+            </div>
+            <div class="inputforgetNumber">
+                <span class="material-symbols-outlined" >
+                    phone_in_talk
+                    </span>
+                <input type="number" id="forgetNumber" placeholder="Enter Your Number">
+            </div>
+            <p id="errorforgetNumber"  style="display: none;">Paice Enter Number...!</p>
+            <div class="buttons">
+                <button id="sendOtp">Send OTP</button> 
+    
+            </div>
+        </div>
+        <div class="forget  forgetlogin" id="forgetOTPpage" style="display: none;">
+            <div class="arrow_backText">
+                <span class="material-symbols-outlined" id="forgetbackarroe2">
+                    arrow_back
+                    </span>
+                <p>Forget Your Id</p>
+            </div>
+            <div class="text">
+                <p>Please check your message with your code. Your code is 6 characters long.</p>
+            </div>
+            <div class="inputforgetNumber">
+                <span class="material-symbols-outlined" >
+                    phone_in_talk
+                    </span>
+                <input type="number" id="forgetOtp" placeholder="Enter Your OTP">
+            </div>
+            <p id="errorforgetNumber"  style="display: none;">Paice Enter OTP...!</p>
+            <div class="buttons">
+                <button id="forgetotplogiinbtn">LOGIN</button> 
+                <button id="sendOtpSecand"></button>
+                <button id="AginOTPSend" style="display: none;">Agin OTP Send</button>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+
+
+
+    <!-- loginpage end -->
+
+
+
+
+
+
+
+
+    <div id="FullMessangerApp">
+        <div class="page_1">    
+            <div class="icon">
+                <i class="fa-brands fa-facebook-messenger"></i>
+            </div>
+            <div class="text">
+                <h4>From</h4>
+                <h2>Meta</h2>
+            </div> 
+        </div>
+    
+        <!-- fage_1 closs -->
+    
+        <div class="page_2">
+            <div class="manu_icon">
+                <div>
+                    <i class="fa-solid fa-bars" id="manu_sating"></i>
+                    <h2>Chats</h2>
+                </div>
+                <i class="fa-solid fa-pen"></i>
+            </div>
+    
+            <div class="mien_chats">
+                <div class="search_bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="online_id">
+                    <div id="my_Id">
+                        <h5>What's up?</h5>
+                        <img src="" alt="img" id="yourLogo">
+                        <span></span>
+                        <p style="color: rgb(92, 92, 92);">Your note</p>
+                    </div>
+                </div>
+                <div class="addIdBtn">
+                    <span class="material-symbols-outlined">
+                        add
+                        </span>
+                </div>
+    
+                <div class="all_id" id="UserAllList">
+                </div>
+            </div>
+            
+
+            <div class="stories_icon" style="display: none;" >
+                <div>
+                    <i class="fa-solid fa-comment"></i>
+                    <p style="color: rgb(0, 102, 255);">Chats</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-stop"></i>
+                    <p style="color: rgb(117, 117, 117);">Stories</p>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div id="sating" class="info_page">
+            <div class="hed">
+                <span class="material-symbols-outlined" id="sating_to_backPage2">arrow_back</span>
+                <span class="material-symbols-outlined">
+                    qr_code_scanner
+                    </span>
+            </div>
+            <input type="file" id="inputImageChang" style="display: none;">
+            <div class="cropper" id="cropperSating" style="display: none;">
+                <div class="saveImage">
+                    <span class="material-symbols-outlined" id="satingImagePage_back">
+                        arrow_back
+                        </span>
+                        <span id="saveImage" onclick="saveImages()" class="material-symbols-outlined">
+                            check
+                            </span>   
+                </div>
+                <img src="" id="stingpreviewImage" >
+            </div>
+ 
+            <div class="bodys">
+
+
+                <div class="profile">
+                    <div id="logo">
+                        <img src="" alt="img" id="userLogoChang">
+                        <span><i class="fa-solid fa-camera"></i></span>
+                    </div>
+                    <h3 id="Your_Name"></h3>
+                </div>
+                <div class="seting">
+                    <div>
+                        <i class="fa-solid fa-moon"></i>
+                        <div>
+                            <p>Dark mode</p>
+                            <span>On</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            radio_button_checked
+                            </span>
+                        <p>Active status</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            alternate_email
+                            </span>
+                        <p>Username</p>
+                    </div>
+                    <p>For families</p>
+                    <div>
+                        <i class="fa-solid fa-house-user"></i>
+                        <p>Supervision</p>
+                    </div>
+                    <p>Services</p>
+                    <div>
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <p>Orders</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            credit_card
+                            </span>
+                        <p>Payments</p>
+                    </div>
+                    <p>Preferences</p>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            face
+                            </span>
+                        <p>Avatar</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            accessibility_new
+                            </span>
+                        <p>Accessibility</p>
+                    </div>
+                    <p>Privacy & support</p>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            encrypted_add
+                            </span>
+                        <p>Privacy & safety</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            notifications
+                            </span>
+                        <p>Notifications & sounds</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            perm_data_setting
+                            </span>
+                        <p>Data Saver</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            perm_media
+                            </span>
+                        <p>Photos & media</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            doorbell
+                            </span>
+                        <P>Memoreis</P>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            cell_tower
+                            </span>
+                        <p>Free features</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            mark_unread_chat_alt
+                            </span>
+                        <p>Chat heads</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            download
+                            </span>
+                        <p>App Updates</p>
+                    </div>
+                    <p>Safety</p>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            switch_account
+                            </span>
+                        <p>Switch Account</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            warning
+                            </span>
+                        <P>Report technical problem</P>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            help
+                            </span>
+                        <p>Help</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            description
+                            </span>
+                        <p>Legal & policies</p>
+                    </div>
+                    <div id="Logout">
+                        <span class="material-symbols-outlined">
+                            logout
+                            </span>
+                        <p>Logout</p>
+                    </div> 
+                </div>
+            </div>
+         </div>
+         <div class="IdAddPage" style="display: none;">
+             <div class="hadepat">
+                 <i class="fa-solid fa-arrow-left" id="backAddPage"></i>
+                 <p>New Contact</p>
+             </div>
+             <div class="addImg"><img src="account_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg" alt=""></div>
+             <div class="minepat">
+                <div>
+                    <span class="material-symbols-outlined">
+                        alternate_email </span>
+                        <input type="email" id="Frand_Name" placeholder=" Type Email">
+                </div>
+                <div style="display: none;">
+                    <span class="material-symbols-outlined">
+                        call
+                        </span>
+                        <input type="number" id="Frand_Number" placeholder="Number">
+                </div>
+                <div style="display: none;">
+                    <span class="material-symbols-outlined">
+                        alternate_email
+                        </span>
+                        <input type="text" id="Frand_Email" placeholder="Email">
+                </div>
+             </div>
+             <div class="button">
+                <button id='saveFrandDetails' >Save</button>
+             </div>
+         </div>
+        <div class="page_3">
+            <div class="head">
+                <div>
+                    <i class="fa-solid fa-arrow-left" id="backPage"></i>
+                    <div id="logo">
+                        <img id="userProfileLogo">
+                        <span></span>
+                    </div>
+                    <p class="profileName">Md Alif Ahmed</p>
+                </div>
+                <div class="icons">
+                    <i class="fa-solid fa-phone" id="audio_phone_icon"></i>
+                    <i class="fa-solid fa-video"></i>
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+            </div>
+            <div class="body">
+                <div id="meinChat">   
+                    <!-- <div id="you">
+                        <div>
+                            <span><p> hi</p></span>
+                            <p>2025/05/18 12:12AM</p>
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div id="my">
+                        <div id="me">
+                            <div class="call">
+                                <div>
+                                    <div class="phone">
+                                        <i class="fa-solid fa-phone-slash"></i>
+                                    </div>
+                                    <div>
+                                        <p> Missed Audio call</p>
+                                        <span>Tap to call again</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div> 
+    
+            </div>
+                <div class="HeddinCameraBox">
+                    <div class="imagText">
+                        <img src="1737123782930.jpg" alt="">
+                        <div>
+                            <p>Md Alif Ahmed</p>
+                            <span>12:12:12</span>
+                        </div>
+                        <span id="videoCloss" class="material-symbols-outlined">
+                            close
+                            </span>
+                    </div> 
+                    <video src="" id="HeddenVideo"></video>             
+                    <span class="material-symbols-outlined" id="fullscreen">
+                        fullscreen
+                        </span>
+                </div>
+    
+            <div class="botom">
+                    <div class="satingsbox">
+                        <div class="addItem">
+                            <div class="Locatison">
+                                <span class="material-symbols-outlined"> pin_drop </span>
+                                <p>Live Locatison</p>
+                                <a href="https://maps.app.goo.gl/s9ZoMdS7ZvjSHX4cA"></a>
+                            </div>
+                            <div class="HeddinCamera">
+                                <span class="material-symbols-outlined"> eye_tracking </span>
+                                <p>Heddin Camera</p>
+                            </div>
+                        </div>
+                        <div class="autoSendText">
+                                <div>          
+                                    <p id="Enter_Number" style="display: none;">Enter Number</p>
+                                    <input type="number" id="inputNumber" placeholder="Number" style="display: none;"> 
+                                    <div class="numBtn">
+                                        <button class="back">back</button>
+                                        <button class="ok">Ok</button>
+                                    </div>
+                                    <div class="TimerTetxt">
+                                        <span class="material-symbols-outlined">timer</span>
+                                        <p>Set Timer to auto send Messang</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p id="set_Timer" style="display: none;">set Timer</p>
+                                    <input type="time" id="InputTime" style="display: none;">
+                                    <div class="timBtn">
+                                        <button class="back">back</button>
+                                        <button class="ok">Ok</button>
+                                    </div>
+                                    <div class="itemSend">
+                                        <span class="material-symbols-outlined">replay_10</span>
+                                        <p>Set item to auto send Messang</p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+    
+                    <div id="icon">
+                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-solid fa-image"></i>
+                        <i id="icon3" class="fa-solid fa-microphone"></i>
+                        <img src="images copy.png" alt="">
+                        <input type="file" name="" id="InputImg" style="display: none;">
+                    </div>
+                    <i id="angle_up" class="fa-solid fa-angle-up" style="rotate: 90deg; display: none;"></i>
+                    <span id="addIcon" class="material-symbols-outlined" style="display: none;">add</span>
+
+                    <div id="input">
+                        <textarea id="inputText" placeholder="Message" oninput="toggleSendIcon()"></textarea>
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+                    <i id="icon2"  class="fa-solid fa-thumbs-up" style="display: block;"></i>
+                    <i class="fa-solid fa-paper-plane" style="display:none;"></i>
+            </div>
+        </div>
+    
+        <!-- page_3 end -->
+    
+         <!-- info page strad -->
+    
+    
+         <div class="info_page" id="info_page">
+            <div class="hed">
+                <span class="material-symbols-outlined" id="info_page_back">
+                    arrow_back
+                </span>
+                <span class="material-symbols-outlined">
+                        more_vert
+                </span>
+            </div> 
+            <div class="bodys" id="frand_profile">
+                <div class="profile">
+                    <div id="logo">
+                        <img src="" alt="">
+                        <span></span>
+                    </div>
+                    <h3></h3>
+                    <p>End-to-end encrypted</p>
+                </div>
+    
+                <div class="contact">
+                    <div>
+                        <span class="material-symbols-outlined">
+                            call
+                            </span>
+                        <p>Audio</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            videocam
+                            </span>
+                        <p>Video</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            account_circle
+                            </span>
+                        <p>Profil</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            notifications
+                            </span>
+                        <p>Mute</p>
+                    </div>
+                </div>
+                <p>Customization</p>
+                <div class="seting">
+                    <div>
+                        <span class="material-symbols-outlined">
+                            contrast
+                            </span>
+                        <p>Theme</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            thumb_up
+                            </span>
+                        <p>Quick reaction</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            signature
+                            </span>
+                        <p>Nicknames</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            wand_stars
+                            </span>
+                        <p>Word effects</p>
+                    </div>
+                    <p>More actions</p>
+        
+                    <div>
+                        <span class="material-symbols-outlined">
+                            photo_library
+                            </span>
+                        <p>View media, files & links</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            keep
+                            </span>
+                        <p>View pinned messages</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            search
+                            </span>
+                        <p>Search in conversation</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            notifications
+                            </span>
+                        <p>Notifications & sounds</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            share
+                            </span>
+                        <p>Share contact</p>
+                    </div>
+                    <p>Privacy & support</p>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            lock
+                            </span>
+                        <p>Verify end-to-end encryption</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            history
+                            </span>
+                        <p>disappearing messages</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            visibility
+                            </span>
+                        <p>Read receipts</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            keyboard
+                            </span>
+                        <P>Typing indicator</P>
+                    </div>
+                    <div>
+    
+                        <p>Restrict</p>
+                    </div>
+                    
+                    <div>
+                        <span class="material-symbols-outlined">
+                            block
+                            </span>
+                        <p>Block</p>
+                    </div>
+                    <div>
+                        <span class="material-symbols-outlined">
+                            warning
+                            </span>
+                        <p>Report</p>
+                    </div>
+                </div>
+            </div>
+         </div>
+     
+        <div class="call_page"  id="audio_call">
+            <div class="topIcon">
+                <i class="fa-solid fa-arrow-left"></i>
+                <div>
+                    <i class="fa-solid fa-user-plus"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+    
+            
+            <div class="user_logo">
+                <div id="logo">
+                    <img src="1737123782930.jpg" alt="img">
+                    <span></span>
+                </div>
+                <h3>Md Alif</h3>
+                <p>Calling</p>
+            </div>
+            
+    
+            <div class="buttom">
+                <div class="bottomIcon">
+                    <i class="fa-solid fa-video-slash"></i>
+                    <i class="fa-solid fa-microphone"></i>
+                    <i class="fa-solid fa-photo-film"></i>
+                    <i class="fa-solid fa-volume-low" style="display: block;"></i>
+                    <i class="fa-solid fa-volume-high" style="display: none;"></i>
+                    <i class="fa-solid fa-phone" id="clossPhone"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="call_page" id="video_coll">
+            <video src="" id="VideoPhoneColl" autoplay></video>
+            <div class="topIcon">
+                <i class="fa-solid fa-arrow-left"></i>
+                <div>
+                    <i class="fa-solid fa-user-plus"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+    
+            
+            <div class="user_logo">
+                <div id="logo">
+                    <img src="1737123782930.jpg" alt="img">
+                    <span></span>
+                </div>
+                <h3>Md Alif</h3>
+                <p>Calling</p>
+            </div>
+            
+    
+            <div class="buttom">
+                <div class="bottomIcon">
+                    <i class="fa-solid fa-video-slash"></i>
+                    <i class="fa-solid fa-microphone"></i>
+                    <i class="fa-solid fa-photo-film"></i>
+                    <span class="material-symbols-outlined">flip_camera_ios</span>
+                    <i class="fa-solid fa-phone" id="clossVideoPhone"></i>
+                </div>
+            </div>
+        </div>
+    
+        <!-- auto chat -->
+    
+        <div class="autoMessag">
+            <div class="viow">
+                <div class="heatText">
+                    <i class="fa-solid fa-arrow-left" id="pageback"></i>
+                    <h1> Enter Ai Bot Answer</h1>
+                    <h1> Enter User questions</h1> 
+                    <i class="fa-solid fa-ellipsis-vertical" id="ThreeDots"></i>
+                </div>
+                <div class="settings">
+                    <div>
+                        <p><span>Dark </span>Mode</p>
+                        <p id="save">Save</p>
+                        <p>Theme</p>
+                    </div>
+                </div>
+                <div class="allText">
+                    <div class="AiBotTExt">
+                        <input type="text" class="User" placeholder="User">
+                        <input type="text" class="AiBot" placeholder="Ai Bot">
+                    </div>
+                </div>
+                <div class="button">
+                    <button id="addInput">Add</button>
+                </div>
+            </div>
+            <!-- <div id="print">
+                <p id="AiBotPrint"></p>
+                <p id="userPrint"></p>
+                <input type="text" id="userInput">
+                <button id="btn">seind</button>
+            </div> -->
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-storage-compat.js"></script>
+
+
+    <script src="messenger.js"></script>
+</body>
+</html> 
